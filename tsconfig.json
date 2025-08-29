@@ -14,7 +14,12 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "es2022"
+    "module": "es2022",
+    "baseUrl": "./projects/feed/src/app",
+    "paths": {
+      "@domains/*": ["domains/*"],
+      "@shared/*": ["shared/*"],
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

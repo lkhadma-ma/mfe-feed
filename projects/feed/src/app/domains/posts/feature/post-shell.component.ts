@@ -1,8 +1,10 @@
-import { Component, signal } from '@angular/core';
+import { AfterViewInit, Component, Injector, ViewChild, ViewContainerRef, signal } from '@angular/core';
 import { PostItemComponent } from '../ui/post-item.component';
-import { SectionComponent } from '../../../shared/section/section.component';
+import { SectionComponent } from '../../../shared/ui/section/section.component';
 import { SortComponent } from "../ui/sort.component";
 import { NewPostComponent } from "../ui/new-post.component";
+import { loadRemoteStyles } from '@shared/util/load-remote-styles';
+import { loadRemoteModule } from '@angular-architects/native-federation';
 
 @Component({
   selector: 'app-post-shell',
@@ -11,8 +13,7 @@ import { NewPostComponent } from "../ui/new-post.component";
     <app-section ngxClass="md:pt-[5rem]">
       <div class="mb-40 md:space-x-6 md:flex ">
         <div class="hidden w-60 lg:block">
-          <!-- <Me />
-        <Recent /> -->
+        <ng-template #meRecentContainer></ng-template>
         </div>
         <div class="flex-1">
           <app-new-post></app-new-post>
@@ -38,6 +39,27 @@ import { NewPostComponent } from "../ui/new-post.component";
     </app-section>
   `,
 })
-export class PostShell {
-  protected readonly title = signal('feed');
+export class PostShellComponent implements AfterViewInit  {
+  @ViewChild('meRecentContainer', { read: ViewContainerRef, static: true })
+  meRecentContainer!: ViewContainerRef;
+  
+  constructor(private injector: Injector) {}
+
+  async ngAfterViewInit() {
+    // -------------------------- STYLES --------------------------
+    await loadRemoteStyles('user');
+
+    // -------------------------- FOOTER --------------------------
+    const meRecentModule = await loadRemoteModule({
+      remoteName: 'user',    
+      exposedModule: './me_recent',
+    });
+
+
+    const meRecent = meRecentModule.UsershellComponent;
+
+    this.meRecentContainer.createComponent(meRecent, { injector: this.injector });
+    
+  }
+  //  http://localhost:4204 
 }

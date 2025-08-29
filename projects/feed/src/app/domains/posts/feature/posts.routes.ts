@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const POSTS_ROUTES: Routes = [
     {
         path: '',
-        loadComponent: () => import('./post-shell.component').then(c => c.PostShell),
+        loadComponent: () => import('./post-shell.component').then(c => c.PostShellComponent),
         title: 'Feeds'
     }
 ];
