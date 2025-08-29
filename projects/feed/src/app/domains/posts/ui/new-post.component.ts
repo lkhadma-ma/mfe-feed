@@ -10,7 +10,7 @@ import { NewPostItemComponent } from "./new-post-item.component";
   <div>
     <!-- Avatar + Input -->
     <div class="flex items-center mb-1">
-      <img class="w-12 h-12 mr-2 rounded-full" src="/images/my-avatar.jpeg" alt="Avatar" />
+      <img class="w-12 h-12 mr-2 rounded-full" src="https://i.pravatar.cc/300" alt="Avatar" />
       <input
         placeholder="Start a post"
         type="text"
