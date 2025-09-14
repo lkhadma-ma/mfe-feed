@@ -1,6 +1,6 @@
 {
     "hosting": {
-      "site": "lkhadma-ma-mfe-feed",
+      "site": "lkhadma-maroc-mfe-feed",
       "public": "dist/feed/browser",
       "ignore": [
         "firebase.json",
