@@ -1,0 +1,1 @@
+import{a as e}from"./chunk-2VMXMS7J.js";var t=[e({path:"",loadComponent:()=>import("./post-shell.component-URGMGNZC.js").then(o=>o.PostShellComponent),title:"Feeds"},typeof ngServerMode<"u"&&ngServerMode?{\u0275entryName:"src/app/domains/posts/feature/post-shell.component.ts"}:{})];export{t as POSTS_ROUTES};
