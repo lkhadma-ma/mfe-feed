@@ -52,7 +52,7 @@ export class PostShellComponent implements AfterViewInit  {
     // -------------------------- FOOTER --------------------------
     const meRecentModule = await loadRemoteModule({
       remoteName: 'user',    
-      exposedModule: './me_recent',
+      exposedModule: './meRecent',
     });
 
 
